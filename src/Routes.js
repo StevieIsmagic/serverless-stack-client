@@ -8,6 +8,8 @@ export default function Routes() {
     <Switch>
       <Route exact path="/">
         <Home />
+      </Route>
+      <Route>
         <NotFound />
       </Route>
     </Switch>
