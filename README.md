@@ -1,3 +1,10 @@
+# Favicon Creator 
+[Use this site to create cool favicons](https://realfavicongenerator.net/)
+---
+# Manifest.json
+[Manifest provides metadata used when your web app is installed on a
+      user's mobile device or desktop](https://developers.google.com/web/fundamentals/web-app-manifest/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
