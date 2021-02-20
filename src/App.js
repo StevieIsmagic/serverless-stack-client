@@ -21,10 +21,10 @@ function App() {
           {/* activekey is set to the current path. this will highlight the link when we are on that page */}
           <Nav activeKey={window.location.pathname}>
             <LinkContainer to="/signup">
-              <Nav.Link >SignUp</Nav.Link>
+              <Nav.Link>SignUp</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/login">
-              <Nav.Link >Login</Nav.Link>
+              <Nav.Link>Login</Nav.Link>
             </LinkContainer>
           </Nav>
         </Navbar.Collapse>
