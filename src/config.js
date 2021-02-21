@@ -1,7 +1,7 @@
 const config = {
   s3: {
     REGION: "us-east-2",
-    BUCKET: "notes-api-prod-serverlessdeploymentbucket-2wgo33iivw0y"
+    BUCKET: "notes-api-prod-serverlessdeploymentbucket-2wgo33iivw0y",
   },
   apiGateway: {
     REGION: "us-east-2",

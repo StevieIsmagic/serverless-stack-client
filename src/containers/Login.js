@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Auth } from "aws-amplify";
+import { useAppContext } from "../libs/contextLib";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import './Login.css'
+import "./Login.css";
 
 export default function Login() {
+  const { userHasAuthenticated } = useAppContext();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -17,7 +19,7 @@ export default function Login() {
 
     try {
       await Auth.signIn(email, password);
-      alert("Logged In ~");
+      userHasAuthenticated(true);
     } catch (e) {
       alert(e.message);
     }
@@ -28,11 +30,11 @@ export default function Login() {
       <Form onSubmit={handleSubmit}>
         <Form.Group size="lg" controlId="email">
           <Form.Label>Email</Form.Label>
-          <Form.Control 
+          <Form.Control
             autoFocus
             type="email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)} 
+            onChange={(e) => setEmail(e.target.value)}
           />
         </Form.Group>
         <Form.Group size="lg" controlId="password">
@@ -40,7 +42,7 @@ export default function Login() {
           <Form.Control
             type="password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)} 
+            onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
         <Button block size="lg" type="submit" disabled={!validateForm()}>
