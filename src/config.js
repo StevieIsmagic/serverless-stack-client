@@ -14,3 +14,5 @@ const config = {
     IDENTITY_POOL_ID: "us-east-2:44ebd28d-e9bc-4fee-8047-21dfbaabdc1e",
   },
 };
+
+export default config;
