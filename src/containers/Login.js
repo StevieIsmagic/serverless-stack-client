@@ -5,6 +5,7 @@ import LoaderButton from "../components/LoaderButton";
 import Form from "react-bootstrap/Form";
 import "./Login.css";
 import { useHistory } from "react-router-dom";
+import { onError } from "../libs/errorLib";
 
 export default function Login() {
   const history = useHistory();
@@ -27,7 +28,7 @@ export default function Login() {
       userHasAuthenticated(true);
       history.push("/");
     } catch (e) {
-      alert(e.message);
+      alert(onError(e));
       setIsLoading(false);
     }
   }
