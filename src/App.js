@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Auth } from "aws-amplify";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { Router } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import "./App.css";
 import Routes from "./Routes";
@@ -13,6 +13,7 @@ function App() {
   // by checking the current authenitication state
   const [isAuthenticating, setIsAuthenticating] = useState(true);
   const [isAuthenticated, userHasAuthenticated] = useState(false);
+  const history = useHistory();
 
   useEffect(() => {
     onLoad();
@@ -34,6 +35,8 @@ function App() {
     await Auth.signOut();
 
     userHasAuthenticated(false);
+
+    history.push("/login");
   }
   return (
     !isAuthenticating && (
