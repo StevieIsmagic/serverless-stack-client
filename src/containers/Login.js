@@ -1,18 +1,21 @@
 import React, { useState } from "react";
 import { Auth } from "aws-amplify";
-import { useAppContext } from "../libs/contextLib";
-import LoaderButton from "../components/LoaderButton";
 import Form from "react-bootstrap/Form";
-import "./Login.css";
 import { useHistory } from "react-router-dom";
+import { useAppContext } from "../libs/contextLib";
+import { useFormFields } from "../libs/hooksLib";
 import { onError } from "../libs/errorLib";
+import LoaderButton from "../components/LoaderButton";
+import "./Login.css";
 
 export default function Login() {
   const history = useHistory();
   const { userHasAuthenticated } = useAppContext();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [fields, handleFieldChange] = useFormFields({
+    email: "",
+    password: "",
+  });
 
   function validateForm() {
     return email.length > 0 && password.length > 0;
@@ -42,7 +45,7 @@ export default function Login() {
             autoFocus
             type="email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={handleFieldChange}
           />
         </Form.Group>
         <Form.Group size="lg" controlId="password">
@@ -50,7 +53,7 @@ export default function Login() {
           <Form.Control
             type="password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={handleFieldChange}
           />
         </Form.Group>
         <LoaderButton
