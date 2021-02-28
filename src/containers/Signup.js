@@ -97,7 +97,7 @@ export default function Signup() {
   function renderForm() {
     return (
       <Form onSubmit={handleSubmit}>
-        <Form.Group controlledId="email" size="lg">
+        <Form.Group controlId="email" size="lg">
           <Form.Label>Email</Form.Label>
           <Form.Control
             autoFocus
@@ -106,7 +106,7 @@ export default function Signup() {
             onChange={handleFieldChange}
           />
         </Form.Group>
-        <Form.Group controlledId="password" size="lg">
+        <Form.Group controlId="password" size="lg">
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
@@ -114,7 +114,7 @@ export default function Signup() {
             onChange={handleFieldChange}
           />
         </Form.Group>
-        <Form.Group controlledId="confirmPassword" size="lg">
+        <Form.Group controlId="confirmPassword" size="lg">
           <Form.Label>Confirm Password</Form.Label>
           <Form.Control
             type="password"
