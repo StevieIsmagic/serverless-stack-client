@@ -45,6 +45,9 @@ export default function Signup() {
       setIsLoading(false);
       setNewUser(newUser);
     } catch (e) {
+      // handle case when user refreshes ae at the confirm step
+      // currently they will not be able to go back and confirm acct.
+      // it will force user to create new account instead
       onError(e);
       setIsLoading(false);
     }
